@@ -4,11 +4,12 @@ import App from './App'
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />
-    },
-    {
-        path: '/test',
-        element: <App />
+        Component: App,
+        children: [
+            { index: true, Component: App },
+            { path: 'gallery', Component: App },
+            { path: 'info', Component: App }
+        ]
     }
 ])
 

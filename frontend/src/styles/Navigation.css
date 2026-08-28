@@ -1,0 +1,49 @@
+.menu {
+  padding: 0;
+  margin: 0;
+}
+
+.home-favicon-img {
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.home-favicon-img:hover {
+  transform: scale(1.15);
+}
+
+.cart-favicon-img {
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.cart-favicon-img:hover {
+  transform: scale(1.1);
+}
+
+.menu .nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu .nav-links a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  margin: 0 3rem;
+  transition: transform 0.2s ease, color 250ms ease;
+  /* animation: logoAnimation 1s ease-out forwards; */
+}
+
+.menu .nav-links a:hover {
+  color: lightskyblue;
+  transform: scale(1.1);
+}
