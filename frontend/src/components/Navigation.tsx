@@ -14,9 +14,6 @@ function Navigation() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/featured">featured</NavLink>
-          </li>
-          <li>
             <NavLink to="/gallery">gallery</NavLink>
           </li>
           <li>
