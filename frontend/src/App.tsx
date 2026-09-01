@@ -1,10 +1,9 @@
 import { Outlet } from 'react-router'
 import Header from './components/Header'
-import './App.css'
 
 function App() {
   return (
-    <div className="page-container">
+    <div className="border-2 border-orange-500 w-full m-0 p-0 box-border min-h-svh">
       <Header />
       <Outlet />
     </div>
