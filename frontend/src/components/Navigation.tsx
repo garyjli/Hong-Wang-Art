@@ -44,6 +44,11 @@ function Navigation() {
               />
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/login" className={textLink}>
+              login
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </div>
