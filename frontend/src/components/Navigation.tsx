@@ -18,9 +18,9 @@ function Navigation() {
         <ul className="flex justify-center list-none m-0 p-0 gap-18">
           <li>
             <NavLink to="/">
-              <img 
+              <img
                 className="w-8 h-8 transition-transform duration-200 ease-[ease] hover:scale-[1.15]" 
-                src={HomeIcon} 
+                src={HomeIcon}
                 alt='Home'
               />
             </NavLink>
@@ -37,9 +37,9 @@ function Navigation() {
           </li>
           <li>
             <NavLink to="/cart">
-              <img 
+              <img
                 className="w-8 h-8 transition-transform duration-200 ease-[ease] hover:scale-[1.1]" 
-                src={CartIcon} 
+                src={CartIcon}
                 alt='Cart'
               />
             </NavLink>
