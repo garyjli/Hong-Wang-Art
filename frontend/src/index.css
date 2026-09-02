@@ -17,6 +17,17 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Animation for the artwork's title underneath the home page's slider */
+@keyframes fadeIn {
+  0% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 /* :root {
   --text: #6b6375;
   --text-h: #08060d;

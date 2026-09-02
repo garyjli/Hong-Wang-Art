@@ -2,6 +2,10 @@ import { NavLink } from 'react-router'
 import HomeIcon from '../assets/home.svg'
 import CartIcon from '../assets/cart.svg'
 
+/**
+ * This is defined outside of Navigation(), so that it's only created once
+ * when the module loads instead of evaluating it on every render.
+ */
 const textLink = `
   block text-black no-underline text-[1.6rem] font-['Raleway',sans-serif] font-light 
   [transition:scale_200ms_ease,color_250ms_ease] hover:scale-[1.1] hover:text-[lightskyblue]

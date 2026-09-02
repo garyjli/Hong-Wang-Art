@@ -3,7 +3,7 @@ import Header from './components/Header'
 
 function App() {
   return (
-    <div className="border-2 border-orange-500 w-full m-0 p-0 box-border min-h-svh">
+    <div className="w-full m-0 p-0 box-border min-h-svh">
       <Header />
       <Outlet />
     </div>

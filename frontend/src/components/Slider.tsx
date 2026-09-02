@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import '../styles/Slider.css'
 
 export type Slide = {
   id: number
@@ -67,33 +66,55 @@ function Slider({ slides }: SliderProps) {
   if (slideCount === 0) return null
 
   return (
-    <div className="img-container">
-      <div className="slider-wrapper">
+    <div className="pt-20 m-0 text-center">
+      <div className="w-[95%] mx-auto">
         <div
-          className="slider"
           ref={sliderRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
-          style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+          className={`
+            flex h-208 overflow-x-scroll snap-x snap-mandatory scroll-smooth rounded-lg
+            shadow-lg [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden
+            ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}
+          `}
         >
           {slides.map((slide) => (
-            <img key={slide.id} id={String(slide.id)} src={slide.src} />
+            <img
+              key={slide.id} 
+              id={String(slide.id)} 
+              src={slide.src} 
+              alt={slide.title}
+              draggable={false}
+              className={`
+                flex-[1_0_100%] snap-center object-contain
+                pointer-events-none [-webkit-user-drag:none] select-none
+              `}
+            />
           ))}
         </div>
 
-        <div className="slider-nav">
+        <div className="mt-8 flex justify-center gap-x-12 p-4">
           {[...Array(slideCount).keys()].map((i) => (
             <a
               key={i}
               href={`#${i}`}
-              className={i === activeIndex ? 'dot active' : 'dot'}
+              className={`
+                size-4 rounded-[50%] bg-[darkgray] transition-opacity duration-300 ease-[ease]
+                ${i === activeIndex ? 'opacity-100' : 'opacity-30'}
+              `}
             />
           ))}
         </div>
       </div>
 
-      <div className="title">
-        <p id="title" key={activeIndex}>
+      <div className="p-0 mt-12 mb-16">
+        <p
+          key={activeIndex}
+          className={`
+            p-0 m-0 font-['Raleway',sans-serif] font-light
+            text-[2rem] italic animate-[fadeIn_500ms_ease]
+          `}
+        >
           {activeSlide.title}
         </p>
       </div>

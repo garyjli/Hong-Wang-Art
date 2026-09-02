@@ -3,7 +3,7 @@ import Navigation from './Navigation'
 
 function Header() {
   return (
-    <header className='shadow-lg'>
+    <header className='shadow-md'>
       <div className='flex justify-center pt-6 pb-8 overflow-y-hidden'>
         <Link to='/' className='no-underline'>
           <h3 
