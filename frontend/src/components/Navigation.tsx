@@ -19,7 +19,7 @@ function Navigation() {
           <li>
             <NavLink to="/">
               <img
-                className="w-8 h-8 transition-transform duration-200 ease-[ease] hover:scale-[1.15]" 
+                className="w-9 h-9 transition-transform duration-200 ease-[ease] hover:scale-[1.15]" 
                 src={HomeIcon}
                 alt='Home'
               />
@@ -38,7 +38,7 @@ function Navigation() {
           <li>
             <NavLink to="/cart">
               <img
-                className="w-8 h-8 transition-transform duration-200 ease-[ease] hover:scale-[1.1]" 
+                className="w-9 h-9 transition-transform duration-200 ease-[ease] hover:scale-[1.1]" 
                 src={CartIcon}
                 alt='Cart'
               />
