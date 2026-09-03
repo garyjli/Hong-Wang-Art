@@ -7,19 +7,20 @@ import CartIcon from '../assets/cart.svg'
  * when the module loads instead of evaluating it on every render.
  */
 const textLink = `
-  block text-black no-underline text-[1.6rem] font-['Raleway',sans-serif] font-light 
-  [transition:scale_200ms_ease,color_250ms_ease] hover:scale-[1.1] hover:text-[lightskyblue]
+  text-black no-underline text-[1.6rem] font-['Raleway',sans-serif] font-light 
+  [transition:scale_200ms_ease,color_250ms_ease] hover:scale-[1.1] hover:text-[lightskyblue] 
+  border border-black px-4 py-1 rounded-full w-auto flex justify-center items-center
 `
 
 function Navigation() {
   return (
-    <div className="pt-0 pb-10 m-0">
+    <div className="p-0 m-0">
       <nav>
-        <ul className="flex justify-center list-none m-0 p-0 gap-18">
+        <ul className="flex justify-center items-center list-none m-0 p-0 gap-14">
           <li>
             <NavLink to="/">
               <img
-                className="w-9 h-9 transition-transform duration-200 ease-[ease] hover:scale-[1.15]" 
+                className="w-11 h-11 transition-transform duration-200 ease-[ease] hover:scale-[1.15]" 
                 src={HomeIcon}
                 alt='Home'
               />
@@ -38,7 +39,7 @@ function Navigation() {
           <li>
             <NavLink to="/cart">
               <img
-                className="w-9 h-9 transition-transform duration-200 ease-[ease] hover:scale-[1.1]" 
+                className="w-11 h-11 transition-transform duration-200 ease-[ease] hover:scale-[1.1]" 
                 src={CartIcon}
                 alt='Cart'
               />

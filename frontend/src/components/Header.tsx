@@ -3,8 +3,9 @@ import Navigation from './Navigation'
 
 function Header() {
   return (
-    <header className='shadow-md'>
-      <div className='flex justify-center pt-6 pb-8 overflow-y-hidden'>
+    <header className='flex items-center justify-between pl-14 pr-24 py-4 shadow-md'>
+      {/* "Hong Wang" Title */}
+      <div className='p-0 m-0'>
         <Link to='/' className='no-underline'>
           <h3 
             className="
