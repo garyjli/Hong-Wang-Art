@@ -17,7 +17,41 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Animation for the artwork's title underneath the home page's slider */
+/* Animation for the header's contents */
+@keyframes revealUp {
+  from {
+    transform: translateY(200%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal-up {
+  animation:
+    revealUp 1s cubic-bezier(0.22, 1, 0.36, 1) both,
+    revealFade 0.75s linear both;
+}
+
+/* Show content immediately when reduced motion is requested */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    animation: none;
+  }
+}
+
+/* Animation for the artwork titles (underneath the slider on the home page) */
 @keyframes fadeIn {
   0% {
     opacity: 0.25;

@@ -5,8 +5,8 @@ function Header() {
   return (
     <header className='flex flex-col gap-7 items-center pt-16 pb-4'>
       {/* "Hong Wang" Title */}
-      <div className='p-0 m-0'>
-        <Link to='/' className='no-underline'>
+      <div className='p-0 m-0 overflow-hidden'>
+        <Link to='/' className='block no-underline reveal-up'>
           <h3
             className={`
               text-black text-[4rem] uppercase transition-opacity duration-250 ease-[ease] 
