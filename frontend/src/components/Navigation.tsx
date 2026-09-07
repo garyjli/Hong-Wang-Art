@@ -14,7 +14,7 @@ const textLink = `
 function Navigation() {
   return (
     <div className="p-0 m-0 overflow-hidden">
-      <nav className="reveal-up" style={{ animationDelay: '200ms' }}>
+      <nav className="reveal-up" style={{ animationDelay: '150ms' }}>
         <ul className="flex justify-center items-center list-none m-0 p-0 gap-20">
           <li>
             <NavLink to="/">
