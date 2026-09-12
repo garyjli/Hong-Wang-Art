@@ -2,16 +2,18 @@ import { artworks, sliderArtworkIds } from '../data/artworks'
 import Slider from '../components/Slider'
 
 /**
- * Array of Artwork objects with ids that match the ids in the sliderArtworkIds array
+ * Finds all artwork objects with an id that matches an
+ * id in sliderArtworkIds, and puts them into an array.
+ * 
+ * Note: sliderArtworks skips missing artworks, i.e. if
+ * sliderArtworkIds requests ids 1, 2, 3 but no artwork
+ * exists with an id of 2, then the slider component
+ * receives: [artwork1, artwork3]
  */
-const sliderArtworks = sliderArtworkIds.map(id => {
+const sliderArtworks = sliderArtworkIds.flatMap(id => {
   const artwork = artworks.find(artwork => artwork.id === id)
 
-  if (!artwork) {
-    throw new Error(`Slider artwork ${id} was not found`)
-  }
-
-  return artwork
+  return artwork ? [artwork] : []
 })
 
 function Home() {
