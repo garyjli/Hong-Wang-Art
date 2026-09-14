@@ -17,7 +17,6 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Animation for the header's contents */
 @keyframes revealUp {
   from {
     transform: translateY(200%);
@@ -28,7 +27,7 @@ html, body {
   }
 }
 
-@keyframes revealFade {
+@keyframes completeFadeIn {
   from {
     opacity: 0;
   }
@@ -38,21 +37,33 @@ html, body {
   }
 }
 
+/* Header animation */
 .reveal-up {
   animation:
-    revealUp 1s cubic-bezier(0.22, 1, 0.36, 1) both,
-    revealFade 0.75s linear both;
+    revealUp 1.25s cubic-bezier(0.22, 1, 0.36, 1) both,
+    completeFadeIn 1s linear both;
 }
 
-/* Show content immediately when reduced motion is requested */
+/* Prevent header animation when reduced motion is requested */
 @media (prefers-reduced-motion: reduce) {
   .reveal-up {
     animation: none;
   }
 }
 
-/* Animation for the artwork titles (underneath the slider on the home page) */
-@keyframes fadeIn {
+/* Page content animation */
+.page-fade-in {
+  animation: completeFadeIn 1s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-fade-in {
+    animation: none;
+  }
+}
+
+/* Artwork title animation */
+@keyframes partialFadeIn {
   0% {
     opacity: 0.25;
   }

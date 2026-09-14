@@ -6,7 +6,9 @@ type SliderProps = {
 }
 
 /**
- * Doing { artworks } destructures the props object.
+ * Receiving { artworks } destructures the props object.
+ * 
+ * This Slider component receives an "artworks" prop from the Home component.
  */
 function Slider({ artworks }: SliderProps) {
   // Reference for the slider component
@@ -110,7 +112,7 @@ function Slider({ artworks }: SliderProps) {
             key={activeArtwork.id}
             className="
               p-0 m-0 font-['Raleway',sans-serif] font-light
-              text-[2rem] italic animate-[fadeIn_500ms_ease]
+              text-[2rem] italic animate-[partialFadeIn_500ms_ease]
             "
           >
             {activeArtwork.title}
