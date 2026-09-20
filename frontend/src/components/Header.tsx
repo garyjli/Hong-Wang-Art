@@ -3,7 +3,7 @@ import Navigation from './Navigation'
 
 function Header() {
   return (
-    <header className='flex flex-col gap-6 items-center pt-14 pb-4'>
+    <header className='flex flex-col gap-6 items-center pt-16 pb-4'>
       {/* "Hong Wang" Title */}
       <div className='overflow-hidden'>
         <Link to='/' className='block no-underline reveal-up'>

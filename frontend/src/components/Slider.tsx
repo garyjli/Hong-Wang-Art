@@ -106,7 +106,7 @@ function Slider({ artworks }: SliderProps) {
 
       {/* Artwork Title -- Keep this rendered only when the particular artwork exists */}
       {activeArtwork && (
-        <div className="mt-16">
+        <div className="mt-14">
           <p
             key={activeArtwork.id}
             className="

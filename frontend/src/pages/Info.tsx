@@ -1,11 +1,21 @@
+import Portrait from '../assets/profile.webp'
+
 function Info() {
   return (
     <main>
       {/* Info Container */}
       <div className="w-[70%] grid grid-cols-[30fr_70fr] gap-12 mx-auto">
         {/* Image */}
-        <div className="border border-[lightgray] rounded-lg shadow-md overflow-hidden">
-          <img src="/"></img>
+        <div
+          className="
+            relative border border-[lightgray] rounded-lg shadow-md overflow-hidden
+          "
+        >
+          <img
+            className="absolute inset-0 h-full w-full object-cover"
+            src={Portrait}
+            alt="Artist Portrait"
+          />
         </div>
 
         {/* Text Description */}
@@ -41,10 +51,10 @@ function Info() {
       <div
         className="
           border border-[lightgray] rounded-lg shadow-md
-          w-[70%] h-auto mt-12 mx-auto p-10 text-center
+          w-[70%] h-auto mt-12 mx-auto pt-8 pb-10 px-10 text-center
         "
       >
-        <h3 className="mb-6 text-[2.8rem] uppercase font-['Raleway',sans-serif] font-light">
+        <h3 className="mb-4 text-[2.8rem] uppercase font-['Raleway',sans-serif] font-light">
           Awards
         </h3>
 
