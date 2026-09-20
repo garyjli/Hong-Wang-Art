@@ -3,14 +3,14 @@ import Navigation from './Navigation'
 
 function Header() {
   return (
-    <header className='flex flex-col gap-6 items-center pt-17 pb-4'>
+    <header className='flex flex-col gap-6 items-center pt-14 pb-4'>
       {/* "Hong Wang" Title */}
-      <div className='p-0 m-0 overflow-hidden'>
+      <div className='overflow-hidden'>
         <Link to='/' className='block no-underline reveal-up'>
           <h3
             className={`
-              text-black text-[4rem] uppercase transition-opacity duration-250 ease-[ease] 
-              font-['Raleway',sans-serif] font-light p-0 m-0 hover:opacity-50
+              text-black text-[4rem] uppercase transition-opacity duration-250 
+              ease-[ease] font-['Raleway',sans-serif] font-light hover:opacity-50
             `}
           >
             Hong Wang

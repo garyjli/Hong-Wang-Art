@@ -47,8 +47,7 @@ function Slider({ artworks }: SliderProps) {
   }
 
   return (
-    <section className="pt-16 m-0 text-center">
-
+    <section className="text-center">
       {/* Slider + dots container */}
       <div className="w-[90%] mx-auto">
 
@@ -95,7 +94,7 @@ function Slider({ artworks }: SliderProps) {
               >
                 <span
                   className={`
-                    size-4 rounded-[50%] bg-[darkgray] transition-opacity duration-300
+                    size-4 rounded-full bg-[darkgray] transition-opacity duration-300
                     ${index === activeIndex ? 'opacity-100' : 'opacity-30'}
                   `}
                 />
@@ -107,19 +106,18 @@ function Slider({ artworks }: SliderProps) {
 
       {/* Artwork Title -- Keep this rendered only when the particular artwork exists */}
       {activeArtwork && (
-        <div className="p-0 my-16">
+        <div className="mt-16">
           <p
             key={activeArtwork.id}
             className="
-              p-0 m-0 font-['Raleway',sans-serif] font-light
-              text-[2rem] italic animate-[partialFadeIn_500ms_ease]
+              font-['Raleway',sans-serif] font-light text-[1.9rem]
+              italic animate-[partialFadeIn_500ms_ease]
             "
           >
             {activeArtwork.title}
           </p>
         </div>
       )}
-
     </section>
   )
 }

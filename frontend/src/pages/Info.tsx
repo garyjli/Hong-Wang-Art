@@ -2,7 +2,7 @@ function Info() {
   return (
     <main>
       {/* Info Container */}
-      <div className="w-[70%] grid grid-cols-[30fr_70fr] gap-12 mx-auto mt-16 mb-12">
+      <div className="w-[70%] grid grid-cols-[30fr_70fr] gap-12 mx-auto">
         {/* Image */}
         <div className="border border-[lightgray] rounded-lg shadow-md overflow-hidden">
           <img src="/"></img>

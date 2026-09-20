@@ -15,7 +15,7 @@ function MainLayout() {
       */}
       <Header />
 
-      <div className="page-fade-in">
+      <div className="py-14 page-fade-in">
         <Outlet />
       </div>
     </div>
