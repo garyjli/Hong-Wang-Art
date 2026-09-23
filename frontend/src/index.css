@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 html {
-  /* formats rem-sizing */
+  /*
+    formats rem sizing:
+    1rem = 10px
+    1.6rem = 16px
+    2.4rem = 24px
+  */
   font-size: 62.5%;
-  /* adds scroll bar even on pages that can't scroll */
-  /* overflow-y: scroll; */
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -53,7 +57,7 @@ html, body {
 
 /* Page content animation */
 .page-fade-in {
-  animation: completeFadeIn 1s ease both;
+  animation: completeFadeIn 0.75s ease-in-out 50ms both;
 }
 
 @media (prefers-reduced-motion: reduce) {

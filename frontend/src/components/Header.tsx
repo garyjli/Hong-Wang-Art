@@ -9,8 +9,8 @@ function Header() {
         <Link to='/' className='block no-underline reveal-up'>
           <h3
             className={`
-              text-black text-[4rem] uppercase transition-opacity duration-250 
-              ease-[ease] font-['Raleway',sans-serif] font-light hover:opacity-50
+              text-black text-[4rem] uppercase transition-opacity
+              duration-250 ease-[ease] font-light hover:opacity-50
             `}
           >
             Hong Wang

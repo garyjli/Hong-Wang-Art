@@ -7,8 +7,7 @@ import CartIcon from '../assets/cart.svg'
  * when the module loads instead of evaluating it on every render.
  */
 const textLink = `
-  text-[1.6rem] font-['Raleway',sans-serif] font-light 
-  transition-colors duration-250 ease-[ease] hover:text-[lightskyblue]
+  text-[1.6rem] font-light transition-colors duration-250 ease-[ease] hover:text-[lightskyblue]
 `
 
 function Navigation() {

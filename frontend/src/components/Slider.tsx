@@ -109,10 +109,7 @@ function Slider({ artworks }: SliderProps) {
         <div className="mt-14">
           <p
             key={activeArtwork.id}
-            className="
-              font-['Raleway',sans-serif] font-light text-[1.9rem]
-              italic animate-[partialFadeIn_500ms_ease]
-            "
+            className="font-light text-[1.9rem] italic animate-[partialFadeIn_500ms_ease]"
           >
             {activeArtwork.title}
           </p>

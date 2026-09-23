@@ -21,8 +21,8 @@ function Info() {
         {/* Text Description */}
         <p
           className="
-            border border-[lightgray] font-['Raleway',sans-serif]
-            font-light text-[1.5rem] p-8 leading-11 shadow-md rounded-lg
+            border border-[lightgray] font-light
+            text-[1.5rem] p-8 leading-11 shadow-md rounded-lg
           "
         >
           Standing on the bare ground, -my head bathed by the blithe air and uplifted into 
@@ -54,11 +54,11 @@ function Info() {
           w-[70%] h-auto mt-12 mx-auto pt-8 pb-10 px-10 text-center
         "
       >
-        <h3 className="mb-4 text-[2.8rem] uppercase font-['Raleway',sans-serif] font-light">
+        <h3 className="mb-4 text-[2.8rem] uppercase font-light">
           Awards
         </h3>
 
-        <p className="leading-12 font-['Raleway',sans-serif] font-light text-[1.5rem]">
+        <p className="leading-12 font-light text-[1.5rem]">
           Marin County Fair Online Show 2022 * First Place Award
           <br />
           Art Show International Gallery Landscape 2022 * Honorable Mention
