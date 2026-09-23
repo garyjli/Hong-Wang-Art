@@ -49,14 +49,26 @@ function Gallery() {
           className="flex flex-col gap-6"
         >
           {column.map((artwork, artworkIndex) => (
-            <figure key={artwork.id}>
+            <figure key={artwork.id} className="group relative cursor-pointer">
               <img
                 src={artwork.src}
                 alt={artwork.alt}
                 // Load the first artwork in each column eagerly
                 loading={artworkIndex === 0 ? 'eager' : 'lazy'}
                 decoding="async"
+                className="transition-[filter] duration-300 group-hover:brightness-50"
               />
+
+              <span
+                className="
+                  absolute bottom-9 right-9 text-white opacity-0 text-[1.4rem]
+                  transition-opacity duration-300 group-hover:opacity-100
+                  after:block after:h-px after:bg-current after:scale-x-0
+                  after:transition-transform after:duration-300 hover:after:scale-x-98
+                "
+              >
+                View Details →
+              </span>
             </figure>
           ))}
         </div>
