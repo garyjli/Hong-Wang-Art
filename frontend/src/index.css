@@ -57,7 +57,7 @@ html, body {
 
 /* Page content animation */
 .page-fade-in {
-  animation: completeFadeIn 0.75s ease-in-out 50ms both;
+  animation: completeFadeIn 0.8s ease-in-out 50ms both;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -10,6 +10,8 @@ export type Artwork = {
     widthCm: number
   } | null
   priceCents: number | null
+  imageWidth: number
+  imageHeight: number
 }
 
 /**
@@ -24,7 +26,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 1200,
+    imageHeight: 996
   },
   {
     id: 2,
@@ -34,7 +38,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 893,
+    imageHeight: 1200
   },
   {
     id: 3,
@@ -44,7 +50,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 907,
+    imageHeight: 1200
   },
   {
     id: 4,
@@ -54,7 +62,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 1200,
+    imageHeight: 994
   },
   {
     id: 5,
@@ -64,7 +74,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 988,
+    imageHeight: 1200
   },
   {
     id: 6,
@@ -74,7 +86,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 1012,
+    imageHeight: 1200
   },
   {
     id: 7,
@@ -84,7 +98,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 1200,
+    imageHeight: 948
   },
   {
     id: 8,
@@ -94,7 +110,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 1031,
+    imageHeight: 1200
   },
   {
     id: 9,
@@ -104,7 +122,9 @@ export const artworks: Artwork[] = [
     description: null,
     year: null,
     dimensions: null,
-    priceCents: null
+    priceCents: null,
+    imageWidth: 815,
+    imageHeight: 1200
   },
 ]
 
