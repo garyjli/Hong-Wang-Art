@@ -1,9 +1,16 @@
 import { useRef, useState } from 'react'
 import type { Artwork } from '../data/artworks'
+import chevronLeft from '../assets/chevron-left.svg'
+import chevronRight from '../assets/chevron-right.svg'
 
 type SliderProps = {
   artworks: Artwork[]
 }
+
+const sliderButtonClass = `
+  transition-opacity duration-250 ease-[ease] hover:opacity-50 
+  absolute top-[45%] -translate-y-1/2 cursor-pointer rounded-full p-3
+`
 
 /**
  * Receiving { artworks } destructures the props object.
@@ -52,33 +59,64 @@ function Slider({ artworks }: SliderProps) {
       <div className="w-[90%] mx-auto">
 
         {/* Slider */}
-        <div
-          ref={sliderRef}
-          onScroll={handleScroll}
-          className="
-            relative flex h-208 overflow-x-scroll snap-x snap-mandatory scroll-smooth rounded-lg
-            shadow-xl [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden
-          "
-        >
-          {artworks.length === 0 ? (
-            // Render this message when no artwork objects are received by this component
-            <div className="relative text-[1.3rem] w-full top-[40%] italic">
-              <p>No artwork to display.</p>
-            </div>
-          ) : (
-            artworks.map(artwork => (
-              <div
-                key={artwork.id}
-                className="h-full w-full min-w-0 shrink-0 snap-center"
+        <div className="relative">
+          <div
+            ref={sliderRef}
+            onScroll={handleScroll}
+            className="
+              flex h-208 overflow-x-scroll snap-x snap-mandatory scroll-smooth rounded-lg
+              shadow-xl [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden
+            "
+          >
+            {artworks.length === 0 ? (
+              // Render this message when no artwork objects are received by this component
+              <div className="relative text-[1.3rem] w-full top-[40%] italic">
+                <p>No artwork to display.</p>
+              </div>
+            ) : (
+              artworks.map(artwork => (
+                <div
+                  key={artwork.id}
+                  className="h-full w-full min-w-0 shrink-0 snap-center"
+                >
+                  <img
+                    src={artwork.src}
+                    alt={artwork.alt}
+                    draggable={false}
+                    className="h-full w-full object-contain select-none"
+                  />
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* Slider buttons */}
+          {artworks.length > 0 && (
+            <>
+              <button
+                type="button"
+                aria-label="Previous artwork"
+                className={`${sliderButtonClass} left-[20%]`}
               >
                 <img
-                  src={artwork.src}
-                  alt={artwork.alt}
-                  draggable={false}
-                  className="block h-full w-full object-contain select-none"
+                  src={chevronLeft}
+                  alt=""
+                  className="size-20"
                 />
-              </div>
-            ))
+              </button>
+
+              <button
+                type="button"
+                aria-label="Next artwork"
+                className={`${sliderButtonClass} right-[20%]`}
+              >
+                <img
+                  src={chevronRight}
+                  alt=""
+                  className="size-20"
+                />
+              </button>
+            </>
           )}
         </div>
 
