@@ -8,8 +8,9 @@ type SliderProps = {
 }
 
 const sliderButtonClass = `
-  transition-opacity duration-250 ease-[ease] hover:opacity-50 
-  absolute top-[45%] -translate-y-1/2 cursor-pointer rounded-full p-3
+  transition-opacity duration-250 ease-[ease] enabled:hover:opacity-50 
+  absolute top-[45%] -translate-y-1/2 cursor-pointer rounded-full p-3 
+  disabled:cursor-default disabled:opacity-50
 `
 
 /**
@@ -58,8 +59,10 @@ function Slider({ artworks }: SliderProps) {
       {/* Slider + dots container */}
       <div className="w-[90%] mx-auto">
 
-        {/* Slider */}
+        {/* Slider container */}
         <div className="relative">
+
+          {/* Slider itself */}
           <div
             ref={sliderRef}
             onScroll={handleScroll}
@@ -96,28 +99,25 @@ function Slider({ artworks }: SliderProps) {
               <button
                 type="button"
                 aria-label="Previous artwork"
+                onClick={() => scrollToArtwork(activeIndex - 1)}
+                disabled={activeIndex === 0}
                 className={`${sliderButtonClass} left-[20%]`}
               >
-                <img
-                  src={chevronLeft}
-                  alt=""
-                  className="size-20"
-                />
+                <img src={chevronLeft} alt="" className="size-20" />
               </button>
 
               <button
                 type="button"
                 aria-label="Next artwork"
+                onClick={() => scrollToArtwork(activeIndex + 1)}
+                disabled={activeIndex === artworks.length - 1}
                 className={`${sliderButtonClass} right-[20%]`}
               >
-                <img
-                  src={chevronRight}
-                  alt=""
-                  className="size-20"
-                />
+                <img src={chevronRight} alt="" className="size-20" />
               </button>
             </>
           )}
+
         </div>
 
         {/* Dots -- Keep this rendered as long as there are available artworks */}
@@ -140,6 +140,7 @@ function Slider({ artworks }: SliderProps) {
             ))}
           </div>
         )}
+
       </div>
 
       {/* Artwork Title -- Keep this rendered only when the particular artwork exists */}
