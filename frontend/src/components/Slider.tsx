@@ -9,7 +9,7 @@ type SliderProps = {
 
 const sliderButtonClass = `
   transition-opacity duration-250 ease-[ease] enabled:hover:opacity-50 
-  absolute top-[45%] -translate-y-1/2 cursor-pointer rounded-full p-3 
+  absolute top-[42%] -translate-y-1/2 cursor-pointer rounded-full p-3 
   disabled:cursor-default disabled:opacity-50
 `
 

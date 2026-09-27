@@ -70,7 +70,7 @@ function Gallery() {
    * then the next time Gallery() renders, it would recalculate and set the gallery to
    * 72% of the window's updated width.
    */
-  const [galleryWidth] = useState(() => window.innerWidth * 0.72)
+  const [galleryWidth] = useState(() => window.innerWidth * 0.65)
 
   /**
    * Each of the 3 columns of the gallery is represented as a list of Artwork objects.
@@ -107,7 +107,7 @@ function Gallery() {
       {columns.map((column, columnIndex) => (
         <div
           key={columnIndex}
-          className="flex flex-col gap-6"
+          className="flex flex-col gap-5"
         >
           {column.map((artwork, artworkIndex) => (
             <figure key={artwork.id} className="group relative cursor-pointer">
