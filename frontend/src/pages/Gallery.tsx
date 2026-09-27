@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { artworks } from '../data/artworks'
 import type { Artwork } from '../data/artworks'
 
@@ -55,20 +55,24 @@ function distributeArtworks(items: readonly Artwork[], columnWidth: number, gap:
  *   </div>
  * </main>
  * 
- * With our current setup, Gallery() runs twice:
- *   - First render: 'columns' contains [[], [], []], and React creates 3 empty column
- *     elements. Then it measures the column width and gap, calculates artwork arrangements,
- *     and finally calls setColumns().
- *   - Second render: Calling this setter function causes React to run Gallery() again.
+ * Gallery initially renders three empty columns so useLayoutEffect can measure
+ * their width and gap.
+ * 
+ * Calling setColumns() triggers another render, placing correctly sized artwork
+ * placeholders into those columns.
+ * 
+ * Later, setSeenArtworkIds() triggers additional renders as artworks enter the
+ * viewport. These renders add the corresponding image elements, allowing their
+ * images to begin loading.
  */
 function Gallery() {
   const galleryRef = useRef<HTMLElement>(null)
 
   /**
    * Here, useState tells React to remember this value between renders.
-   * If we used a normal variable instead, e.g. const gallery = window.innerWidth * 0.72,
+   * If we used a normal variable instead, e.g. const gallery = window.innerWidth * 0.65,
    * then the next time Gallery() renders, it would recalculate and set the gallery to
-   * 72% of the window's updated width.
+   * 65% of the window's updated width.
    */
   const [galleryWidth] = useState(() => window.innerWidth * 0.65)
 
@@ -80,11 +84,16 @@ function Gallery() {
   const [columns, setColumns] = useState<[Artwork[], Artwork[], Artwork[]]>([[], [], []])
 
   /**
-   * Here, useLayoutEffect allows React to calculate the column width and gap before
-   * anything is displayed on the page. This allows the gallery itself to be displayed
-   * on the page only after all artworks have been placed in the gallery's columns,
-   * and prevents an empty gallery (with empty columns) from being displayed before
-   * React is able to calculate and place artworks into their columns.
+   * This is a set that remembers which artworks have entered the viewport.
+   */
+  const [seenArtworkIds, setSeenArtworkIds] = useState<Set<number>>(() => new Set())
+
+  /**
+   * Here, useLayoutEffect measures the column width and gap, then arranges the artwork
+   * placeholders before the browser paints the gallery. This allows the gallery itself
+   * to be displayed on the page only after all artworks have been reserved spots in the
+   * gallery's columns, which prevents an empty gallery (with empty columns) from being
+   * displayed before React is able to calculate and place artworks into their columns.
    */
   useLayoutEffect(() => {
     const column = galleryRef.current?.firstElementChild
@@ -96,6 +105,38 @@ function Gallery() {
 
     setColumns(distributeArtworks(artworks, columnWidth, gap))
   }, [])
+
+  useEffect(() => {
+    const figures = galleryRef.current?.querySelectorAll('figure[data-artwork-id]')
+    if (!figures || figures.length === 0) return
+
+    const visibilityThreshold = 0.1
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        const ids: number[] = []
+
+        for (const entry of entries) {
+          // Skip artworks that haven't reached the visibility threshold
+          if (entry.intersectionRatio < visibilityThreshold) continue
+
+          ids.push(Number(entry.target.getAttribute('data-artwork-id')))
+
+          // Once seen, this artwork no longer needs observing
+          observer.unobserve(entry.target)
+        }
+
+        if (ids.length > 0) {
+          setSeenArtworkIds(previous => new Set([...previous, ...ids]))
+        }
+      },
+      { threshold: visibilityThreshold }
+    )
+
+    figures.forEach(figure => observer.observe(figure))
+
+    return () => observer.disconnect()
+  }, [columns])  // Run this after the column arrangement creates the figures
 
   return (
     <main
@@ -109,23 +150,28 @@ function Gallery() {
           key={columnIndex}
           className="flex flex-col gap-5"
         >
-          {column.map((artwork, artworkIndex) => (
-            <figure key={artwork.id} className="group relative cursor-pointer">
-              <img
-                src={artwork.src}
-                alt={artwork.alt}
-                // Load the first artwork in each column eagerly
-                loading={artworkIndex === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-                className="w-full transition-[filter] duration-400 group-hover:brightness-50"
-                width={artwork.imageWidth}
-                height={artwork.imageHeight}
-              />
+          {column.map(artwork => (
+            <figure
+              key={artwork.id}
+              data-artwork-id={artwork.id}
+              className="group relative cursor-pointer"
+              style={{ aspectRatio: `${artwork.imageWidth} / ${artwork.imageHeight}` }}
+            >
+              {seenArtworkIds.has(artwork.id) && (
+                <img
+                  src={artwork.src}
+                  alt={artwork.alt}
+                  decoding="async"
+                  className="w-full transition-[filter] duration-300 group-hover:brightness-50"
+                  width={artwork.imageWidth}
+                  height={artwork.imageHeight}
+                />
+              )}
 
               <span
                 className="
                   absolute bottom-10 right-10 text-white opacity-0 text-[1.35rem]
-                  font-light transition-opacity duration-400 group-hover:opacity-100
+                  font-light transition-opacity duration-300 group-hover:opacity-100
                   after:block after:h-px after:bg-current after:scale-x-0
                   after:transition-transform after:duration-300 hover:after:scale-x-98
                 "
