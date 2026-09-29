@@ -162,7 +162,7 @@ function Gallery() {
                   src={artwork.src}
                   alt={artwork.alt}
                   decoding="async"
-                  className="w-full transition-[filter] duration-300 group-hover:brightness-50"
+                  className="page-fade-in w-full transition-[filter] duration-300 group-hover:brightness-50"
                   width={artwork.imageWidth}
                   height={artwork.imageHeight}
                 />

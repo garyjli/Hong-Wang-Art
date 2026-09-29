@@ -5,6 +5,8 @@ function MainLayout() {
   // Provides the current router location
   const location = useLocation()
 
+  const isGallery = location.pathname.replace(/\/+$/, '') === '/gallery'
+
   return (
     <div key={location.key} className='min-h-svh'>
       {/*
@@ -15,7 +17,7 @@ function MainLayout() {
       */}
       <Header />
 
-      <div className="pt-16 pb-32 page-fade-in">
+      <div className={`pt-16 pb-32 ${isGallery ? '' : 'page-fade-in'}`}>
         <Outlet />
       </div>
     </div>
